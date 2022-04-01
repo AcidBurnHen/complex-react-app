@@ -1,5 +1,5 @@
 import React, { useEffect, Suspense } from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import { useImmerReducer } from "use-immer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
@@ -144,7 +144,8 @@ function Main() {
   );
 }
 
-ReactDOM.render(<Main />, document.querySelector("#app"));
+const root = createRoot(document.querySelector("#app"));
+root.render(<Main />);
 
 if (module.hot) {
   module.hot.accept();
